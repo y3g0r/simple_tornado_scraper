@@ -1,0 +1,21 @@
+scpap_mysql:
+  image: mysql:5.6
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_DATABASE: test
+  ports:
+    - "3306:3306"
+scrap_redis:
+  image: redis:alpine
+  ports:
+    - "6379:6379"
+scrap:
+  build: .
+  links:
+    - scrap_redis
+    - scpap_mysql
+  ports:
+    - "8888:8888"
+  environment:
+    - REDIS_HOST=scrap_redis
+    - MYSQL_HOST=scpap_mysql

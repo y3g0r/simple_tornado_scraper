@@ -1,0 +1,8 @@
+backports-abc==0.4
+greenlet==0.4.9
+lxml==3.6.0
+pycurl==7.43.0
+PyMySQL==0.7.2
+redis==2.10.5
+tormysql==0.2.3
+tornado==4.3
